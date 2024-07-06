@@ -5,6 +5,7 @@ const authRoute = require('./routes/authRoute');
 const cors = require('cors')
 const morgan = require('morgan');
 const courseRoute = require('./routes/courseRoute');
+const blogRoute = require('./routes/blogRoute');
 
 dotenv.config();
 connectDB()
@@ -22,8 +23,9 @@ app.get('/',(req,res)=>{
 
 app.use('/api/v1/auth',authRoute);
 app.use('/api/v1/course',courseRoute);
+app.use('/api/v1/blog',blogRoute);
 
 
 app.listen(process.env.PORT,()=>{
     console.log('server running on port 8080')
-})
+});
