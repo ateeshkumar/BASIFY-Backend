@@ -1,4 +1,3 @@
-const { response } = require("express");
 const userModel = require("../models/userModel");
 const { hashPassword, comparePassword } = require("../utils/paswordEncryption");
 const JWT = require('jsonwebtoken');
