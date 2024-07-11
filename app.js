@@ -6,6 +6,7 @@ const cors = require('cors')
 const morgan = require('morgan');
 const courseRoute = require('./routes/courseRoute');
 const blogRoute = require('./routes/blogRoute');
+const jobRoute = require('./routes/jobRoute');
 
 dotenv.config();
 connectDB()
@@ -14,6 +15,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(express.static('./public'));
 
 
 app.get('/',(req,res)=>{
@@ -24,6 +26,7 @@ app.get('/',(req,res)=>{
 app.use('/api/v1/auth',authRoute);
 app.use('/api/v1/course',courseRoute);
 app.use('/api/v1/blog',blogRoute);
+app.use('/api/v1/job',jobRoute);
 
 
 app.listen(process.env.PORT,()=>{
