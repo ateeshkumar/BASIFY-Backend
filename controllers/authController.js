@@ -85,3 +85,21 @@ exports.userLoginController = async(req,res)=>{
         })
     }
 }
+
+exports.getAlluserDetails = async(req,res)=>{
+    try {
+        const data = await userModel.find();
+        return res.status(200).send({
+            response:false,
+            message:"All user fetch successfully",
+            data:data
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send({
+            response:false,
+            message:"internal server Error",
+            error
+        })
+    }
+}
