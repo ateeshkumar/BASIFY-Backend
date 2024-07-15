@@ -9,6 +9,10 @@ const blogSchema = new mongoose.Schema({
         type:String,
         required:[true,"Phone is required"],
     },
+    image:{
+        type:String,
+        default:""
+    },
     content:{
         type:String,
         default:null,

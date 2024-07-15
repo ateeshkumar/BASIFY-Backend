@@ -2,7 +2,8 @@ const courseModel = require("../models/courseModel");
 
 exports.createCourseController = async(req,res)=>{
     try {
-        const {courseName,coursePrice,courseLogo} = req.body;
+        const {courseName,coursePrice} = req.body;
+        const courseLogo = req.file ? req.file.filename : "";
         if(!courseName || !coursePrice){
             return res.status(400).send({
                 response:false,
