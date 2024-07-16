@@ -56,3 +56,43 @@ exports.createCourseModuleController = async(req,res)=>{
         })
     }
 }
+
+//get all courses access
+
+exports.getAllCoursesController = async(req,res)=>{
+    try {
+        const data = await courseModel.find();
+        return res.status(200).send({
+            response:true,
+            message:'Courses fetch Successfully',
+            data:data
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            response:false,
+            message:'Internal server error',
+            error
+        })
+    }
+}
+
+//get single course details
+exports.getSingleCoursesController = async(req,res)=>{
+    try {
+        const {id} = req.params;
+        const data = await courseModel.findById(id);
+        return res.status(200).send({
+            response:true,
+            message:'Courses fetch Successfully',
+            data:data
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            response:false,
+            message:'Internal server error',
+            error
+        })
+    }
+}
