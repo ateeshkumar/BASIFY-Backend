@@ -17,6 +17,10 @@ const jobSchema = mongoose.Schema({
         type:String,
         required:true
     },
+    status:{
+        type:String,
+        default:"Active"
+    }
 }, { timestamps: true });
 
 const jobModel = mongoose.model('Job',jobSchema);

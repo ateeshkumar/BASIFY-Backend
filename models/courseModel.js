@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const userSchema = new mongoose.Schema(
+const courseSchema = new mongoose.Schema(
   {
     courseName: {
       type: String,
@@ -45,6 +45,6 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const courseModel = mongoose.model("course", userSchema);
+const courseModel = mongoose.model("course", courseSchema);
 
 module.exports = courseModel;

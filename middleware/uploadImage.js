@@ -22,6 +22,14 @@ const jobsStorage = multer.diskStorage({
   },
 });
 
+const courseSubModuleStorage = multer.diskStorage({
+  destination: "./uploads/courseSubModule",
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
 exports.courseImage = multer({ storage: courseStorage });
 exports.blogImage = multer({ storage: blogStorage });
 exports.jobImage = multer({ storage: jobsStorage });
+exports.courseSubModuleImage = multer({ storage: courseSubModuleStorage });
