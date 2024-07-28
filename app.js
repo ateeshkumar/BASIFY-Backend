@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const courseRoute = require('./routes/courseRoute');
 const blogRoute = require('./routes/blogRoute');
 const jobRoute = require('./routes/jobRoute');
+const constact = require('./routes/contactUs');
 
 dotenv.config();
 connectDB()
@@ -18,6 +19,7 @@ app.use(morgan('dev'));
 app.use(express.static('./public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "./uploads"));
+app.use("/uploads", express.static("./uploads"));
 
 
 app.get('/',(req,res)=>{
@@ -29,6 +31,7 @@ app.use('/api/v1/auth',authRoute);
 app.use('/api/v1/course',courseRoute);
 app.use('/api/v1/blog',blogRoute);
 app.use('/api/v1/job',jobRoute);
+app.use('/api/v1/contact',constact);
 
 
 app.listen(process.env.PORT,()=>{
